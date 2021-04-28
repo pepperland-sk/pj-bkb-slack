@@ -14,9 +14,7 @@ def reply_bkb(message):
     raws = []
     features = []
     while node:
-        feature = node.feature.split(',')[7]
-        test_f1 = node.feature.split(',')[6]
-        test_f2 = node.feature.split(',')[8]
+        feature = node.feature.split(',')[9]
         raw = node.surface.split(',')[0]
         if feature != "*":
             features.append(feature)
@@ -51,7 +49,15 @@ def reply_bkb(message):
         #print(b2.match(features2).span(1))
     else:
         print(features)
-        print(test_f1)
-        print(test_f2)
         print(raws)
         message.reply("ブゥンブゥン")
+
+# node = mecab.parseToNode(text)
+# while node:
+#     #単語を取得
+#     word = node.surface
+#     #品詞を取得
+#     features = node.feature.split(",")
+#     print('{0} , {1}'.format(word, features[9]))
+#     #次の単語に進める
+#     node = node.next
