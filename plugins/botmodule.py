@@ -16,7 +16,7 @@ def reply_bkb(message):
     while node:
         feature = node.feature.split(',')[7]
         test_f1 = node.feature.split(',')[6]
-        test_f2 = node.feature.split(',')[5]
+        test_f2 = node.feature.split(',')[8]
         raw = node.surface.split(',')[0]
         if feature != "*":
             features.append(feature)
