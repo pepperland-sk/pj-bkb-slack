@@ -9,7 +9,7 @@ import re
 @default_reply
 def reply_bkb(message):
     TEXT = message.body['text']
-    m = MeCab.Tagger("-Ochasen --unk-format='%M'")
+    m = MeCab.Tagger("-Ochasen")
     node = m.parseToNode(TEXT)
     raws = []
     features = []
