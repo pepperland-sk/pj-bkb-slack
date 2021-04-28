@@ -15,6 +15,8 @@ def reply_bkb(message):
     features = []
     while node:
         feature = node.feature.split(',')[7]
+        test_f1 = node.feature.split(',')[6]
+        test_f2 = node.feature.split(',')[5]
         raw = node.surface.split(',')[0]
         if feature != "*":
             features.append(feature)
@@ -49,5 +51,7 @@ def reply_bkb(message):
         #print(b2.match(features2).span(1))
     else:
         print(features)
+        print(test_f1)
+        print(test_f2)
         print(raws)
         message.reply("ブゥンブゥン")
