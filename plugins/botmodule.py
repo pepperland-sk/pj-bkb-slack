@@ -48,4 +48,4 @@ def reply_bkb(message):
         #print(k1.match(features2).span(1))
         #print(b2.match(features2).span(1))
     else:
-        message.reply("ブゥンブゥン")
+        message.reply(features)
