@@ -6,7 +6,7 @@ import MeCab
 import pandas as pd
 import re
 
-@listen_to
+@listen_to(".*")
 def reply_bkb(message):
     TEXT = message.body['text']
     m = MeCab.Tagger()
