@@ -29,7 +29,9 @@ def reply_bkb(message):
 
     features2 = []
     for feature in features:
-        if feature[0] in {"バ", "ビ", "ブ", "ベ", "ボ", "B", "b"}:
+        if feature = '':
+            tmp="O"
+        elif feature[0] in {"バ", "ビ", "ブ", "ベ", "ボ", "B", "b"}:
             tmp="B"
         elif feature[0] in {"カ", "キ", "ク", "ケ", "コ", "K", "k"}:
             tmp="K"
