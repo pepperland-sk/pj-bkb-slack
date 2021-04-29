@@ -25,6 +25,8 @@ def reply_bkb(message):
 
         node = node.next
 
+    print(features)
+
     features2 = []
     for feature in features:
         if feature[0] in {"バ", "ビ", "ブ", "ベ", "ボ", "B", "b"}:
@@ -48,23 +50,27 @@ def reply_bkb(message):
         b2_text = "".join(raws[b2[0]:b2[1]])
 
         message.reply("\n{}！\n{}！\n{}！\n\nBKB！ヒィア！！".format(b1_text, k1_text, b2_text))
-        #print(k1.match(features2).span(1))
-        #print(b2.match(features2).span(1))
+
     else:
         pass
+
+# @respond_to(r'.*')
+# def auto_reply(message):
 
 # import MeCab
 # mecab = MeCab.Tagger()
 # text = "bkbと馬鹿！"
 # node = mecab.parseToNode(text)
+# features = []
 # while node:
-#     #単語を取得
-#     word = node.surface
-#     #品詞を取得
 #     try:
 #         feature = node.feature.split(',')[9]
 #     except IndexError:
 #         feature = node.surface.split(',')[0]
-#     print('{0} , {1}'.format(word, feature))
-#     #次の単語に進める
+#     raw = node.surface.split(',')[0]
+#     if feature != "*":
+#         features.append(feature)
+#
 #     node = node.next
+#
+# print(features)
