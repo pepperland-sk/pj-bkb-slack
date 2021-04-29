@@ -51,9 +51,7 @@ def reply_bkb(message):
         #print(k1.match(features2).span(1))
         #print(b2.match(features2).span(1))
     else:
-        print(features)
-        print(raws)
-        message.reply("ブゥンブゥン")
+        pass
 
 # import MeCab
 # mecab = MeCab.Tagger()
