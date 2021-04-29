@@ -4,6 +4,7 @@ from slackbot.bot import default_reply  # 該当する応答がない場合に�
 
 import MeCab
 import pandas as pd
+import random
 import re
 
 @listen_to(r'.*')
@@ -24,8 +25,6 @@ def reply_bkb(message):
             raws.append(raw)
 
         node = node.next
-
-    print(features)
 
     features2 = []
     for feature in features:
@@ -58,8 +57,11 @@ def reply_bkb(message):
     else:
         pass
 
-# @respond_to(r'.*')
-# def auto_reply(message):
+@respond_to(r'.*')
+def respond_bkb(message):
+    responses = ["ブゥンブゥン", "ヒィア", "チリンチリン"]
+    message.reply(random.choice(responses))
+
 
 # import MeCab
 # mecab = MeCab.Tagger()
