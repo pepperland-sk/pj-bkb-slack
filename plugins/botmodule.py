@@ -6,7 +6,7 @@ import MeCab
 import pandas as pd
 import re
 
-@listen_to(".*")
+@default_reply
 def reply_bkb(message):
     TEXT = message.body['text']
     m = MeCab.Tagger()
@@ -14,7 +14,10 @@ def reply_bkb(message):
     raws = []
     features = []
     while node:
-        feature = node.feature.split(',')[9]
+        try:
+            feature = node.feature.split(',')[9]
+        except IndexError:
+            feature = node.surface.split(',')[0]
         raw = node.surface.split(',')[0]
         if feature != "*":
             features.append(feature)
@@ -24,9 +27,9 @@ def reply_bkb(message):
 
     features2 = []
     for feature in features:
-        if feature[0] in {"バ", "ビ", "ブ", "ベ", "ボ"}:
+        if feature[0] in {"バ", "ビ", "ブ", "ベ", "ボ", "B", "b"}:
             tmp="B"
-        elif feature[0] in {"カ", "キ", "ク", "ケ", "コ"}:
+        elif feature[0] in {"カ", "キ", "ク", "ケ", "コ", "K", "k"}:
             tmp="K"
         else:
             tmp="O"
@@ -52,12 +55,18 @@ def reply_bkb(message):
         print(raws)
         message.reply("ブゥンブゥン")
 
+# import MeCab
+# mecab = MeCab.Tagger()
+# text = "bkbと馬鹿！"
 # node = mecab.parseToNode(text)
 # while node:
 #     #単語を取得
 #     word = node.surface
 #     #品詞を取得
-#     features = node.feature.split(",")
-#     print('{0} , {1}'.format(word, features[9]))
+#     try:
+#         feature = node.feature.split(',')[9]
+#     except IndexError:
+#         feature = node.surface.split(',')[0]
+#     print('{0} , {1}'.format(word, feature))
 #     #次の単語に進める
 #     node = node.next
